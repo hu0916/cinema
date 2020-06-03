@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.IndexPhotosMapper">
+    <!--auto generated Code-->
+    <resultMap id="BaseResultMap" type="com.entity.IndexPhotos">
+        <result column="id" property="id" jdbcType="INTEGER"/>
+        <result column="src" property="src" jdbcType="VARCHAR"/>
+        <result column="year" property="year" jdbcType="INTEGER"/>
+        <result column="type" property="type" jdbcType="INTEGER"/>
+        <result column="movie_id" property="movie_id" jdbcType="INTEGER"/>
+        <result column="stars" property="stars" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="story_line" property="story_line" jdbcType="VARCHAR"/>
+        <result column="release_time" property="release_time" jdbcType="VARCHAR"/>
+        <result column="genre" property="genre" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--auto generated Code-->
+    <sql id="Base_Column_List">
+        id,
+        src,
+        `year`,
+        `type`,
+        movie_id,
+        stars,
+        `name`,
+        story_line,
+        realese_tiem,
+        genre
+    </sql>
+
+    <!--auto generated Code-->
+    <insert id="insert">
+        INSERT INTO index_photos (
+            src,
+            `year`,
+            `type`,
+            movie_id,
+            stars,
+            `name`
+        ) VALUES (
+            #{indexPhotos.src,jdbcType=VARCHAR},
+            #{indexPhotos.year,jdbcType=INTEGER},
+            #{indexPhotos.type,jdbcType=INTEGER},
+            #{indexPhotos.movie_id,jdbcType=INTEGER},
+            #{indexPhotos.stars,jdbcType=INTEGER} ,
+            #{indexPhotos.name,jdbcType=VARCHAR}
+        )
+    </insert>
+
+
+
+    <!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO index_photos (
+            id,
+            src,
+            `year`,
+            `type`,
+            movie_id,
+            stars,
+            `name`,
+            story_line,
+            realese_tiem,
+            genre
+        )VALUES
+        <foreach collection="indexPhotoss" item="indexPhotos" index="index" separator=",">
+            (
+            #{indexPhotos.id,jdbcType=INTEGER},
+            #{indexPhotos.src,jdbcType=VARCHAR},
+            #{indexPhotos.year,jdbcType=INTEGER},
+            #{indexPhotos.type,jdbcType=INTEGER},
+            #{indexPhotos.movie_id,jdbcType=INTEGER},
+            #{indexPhotos.stars,jdbcType=DOUBLE},
+            #{indexPhotos.name,jdbcType=VARCHAR},
+            #{indexPhotos.storyLine,jdbcType=VARCHAR},
+            #{indexPhotos.realeseTiem,jdbcType=VARCHAR},
+            #{indexPhotos.genre,jdbcType=VARCHAR}
+            )
+        </foreach>
+    </insert>
+
+
+    <select id="selectAll" resultMap="BaseResultMap">
+      select * from index_photos where type in
+      <foreach collection="types" item="type" open="(" close=")" separator=",">
+          #{type}
+      </foreach>
+    </select>
+
+    <select id="selectByType" resultType="com.entity.IndexPhotos">
+        select * from index_photos where type =#{type}
+    </select>
+    <delete id="deleteIndexPhoto" parameterType="int">
+        delete from index_photos where id=#{id}
+    </delete>
+    <update id="updateIndexPhoto">
+        update index_photos
+        <set>
+            <if test="IndexPhotos.src!=null">src=#{IndexPhotos.src},</if>
+            <if test="IndexPhotos.year != null">year =#{IndexPhotos.year} ,</if>
+             <if test="IndexPhotos.type != null">type=#{IndexPhotos.type} ,</if>
+              <if test="IndexPhotos.name != null and IndexPhotos.name != ''">name =#{IndexPhotos.name},</if>
+               <if test="IndexPhotos.stars != null">stars=#{IndexPhotos.stars} </if>
+        </set>
+        where movie_id=#{IndexPhotos.movie_id}
+    </update>
+</mapper>
+

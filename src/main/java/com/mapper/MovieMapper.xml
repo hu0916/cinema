@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.MovieMapper">
+    <!--auto generated Code-->
+    <resultMap id="BaseResultMap" type="com.entity.Movie">
+        <result column="movie_id" property="movie_id" jdbcType="INTEGER"/>
+        <result column="movie_name" property="movie_name" jdbcType="VARCHAR"/>
+        <result column="movie_introduce" property="movie_introduce" jdbcType="VARCHAR"/>
+        <result column="movie_time" property="movie_time" jdbcType="TIMESTAMP"/>
+        <result column="movie_type" property="movie_type" jdbcType="INTEGER"/>
+        <result column="movie_price" property="movie_price" jdbcType="DOUBLE"/>
+        <result column="movie_stars" property="movie_stars" jdbcType="INTEGER"/>
+        <result column="movie_src" property="movie_src" jdbcType="VARCHAR"/>
+        <result column="movie_showtime" property="movie_showtime" jdbcType="INTEGER"/>
+        <result column="movie_status" property="movie_status" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--auto generated Code-->
+    <sql id="Base_Column_List">
+        movie_id,
+        movie_name,
+        movie_introduce,
+        movie_time,
+        movie_type,
+        movie_price,
+        movie_stars,
+        movie_src,
+        movie_showtime,
+        movie_status
+    </sql>
+
+    <!--auto generated Code-->
+    <insert id="insert">
+        INSERT INTO movie (
+            movie_name,
+            movie_introduce,
+            movie_time,
+            movie_type,
+            movie_price,
+            movie_stars,
+            movie_src,
+            movie_showtime,
+            movie_status
+        ) VALUES (
+            #{movie.movie_name,jdbcType=VARCHAR},
+            #{movie.movie_introduce,jdbcType=VARCHAR},
+            #{movie.movie_time,jdbcType=TIMESTAMP},
+            #{movie.movie_type,jdbcType=INTEGER},
+            #{movie.movie_price,jdbcType=DOUBLE},
+            #{movie.movie_stars,jdbcType=INTEGER},
+            #{movie.movie_src,jdbcType=VARCHAR},
+            #{movie.movie_showtime,jdbcType=INTEGER} ,
+            #{movie.movie_status,jdbcType=INTEGER}
+        )
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="movie.movie_id">
+        INSERT INTO movie
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="movie.movie_id!=null"> movie_id,</if>
+            <if test="movie.movie_name!=null"> movie_name,</if>
+            <if test="movie.movie_introduce!=null"> movie_introduce,</if>
+            <if test="movie.movie_time!=null"> movie_time,</if>
+            <if test="movie.movie_type!=null"> movie_type,</if>
+            <if test="movie.movie_price!=null"> movie_price,</if>
+            <if test="movie.movie_stars!=null"> movie_stars,</if>
+            <if test="movie.movie_src!=null"> movie_src,</if>
+            <if test="movie.movie_showtime!=null"> movie_showtime,</if>
+            <if test="movie.movie_status!=null"> movie_status,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="movie.movie_id!=null">#{movie.movie_id,jdbcType=INTEGER},
+            </if>
+            <if test="movie.movie_name!=null">#{movie.movie_name,jdbcType=VARCHAR},
+            </if>
+            <if test="movie.movie_introduce!=null">#{movie.movie_introduce,jdbcType=VARCHAR},
+            </if>
+            <if test="movie.movie_time!=null">#{movie.movie_time,jdbcType=TIMESTAMP},
+            </if>
+            <if test="movie.movie_type!=null">#{movie.movie_type,jdbcType=INTEGER},
+            </if>
+            <if test="movie.movie_price!=null">#{movie.movie_price,jdbcType=DOUBLE},
+            </if>
+            <if test="movie.movie_stars!=null">#{movie.movie_stars,jdbcType=INTEGER},
+            </if>
+            <if test="movie.movie_src!=null">#{movie.movie_src,jdbcType=VARCHAR},
+            </if>
+            <if test="movie.movie_showtime!=null">#{movie.movie_showtime,jdbcType=INTEGER} ,
+            </if>
+            <if test="movie.movie_status!=null">#{movie.movie_status,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO movie (
+            movie_id,
+            movie_name,
+            movie_introduce,
+            movie_time,
+            movie_type,
+            movie_price,
+            movie_stars,
+            movie_src,
+            movie_showtime,
+            movie_status
+        )VALUES
+        <foreach collection="movies" item="movie" index="index" separator=",">
+            (
+            #{movie.movie_id,jdbcType=INTEGER},
+            #{movie.movie_name,jdbcType=VARCHAR},
+            #{movie.movie_introduce,jdbcType=VARCHAR},
+            #{movie.movie_time,jdbcType=TIMESTAMP},
+            #{movie.movie_type,jdbcType=INTEGER},
+            #{movie.movie_price,jdbcType=DOUBLE},
+            #{movie.movie_stars,jdbcType=INTEGER},
+            #{movie.movie_src,jdbcType=VARCHAR},
+            #{movie.movie_showtime,jdbcType=INTEGER} ,
+            #{movie.movie_status,jdbcType=INTEGER}
+            )
+        </foreach>
+    </insert>
+
+    <!--auto generated Code-->
+    <update id="updateByPrimaryKeySelective">
+        UPDATE movie
+        <set>
+            <if test="movie.movie_name != null"> movie_name= #{movie.movie_name,jdbcType=VARCHAR},</if>
+            <if test="movie.movie_introduce != null"> movie_introduce= #{movie.movie_introduce,jdbcType=VARCHAR},</if>
+            <if test="movie.movie_time != null"> movie_time= #{movie.movie_time,jdbcType=TIMESTAMP},</if>
+            <if test="movie.movie_type != null"> movie_type= #{movie.movie_type,jdbcType=INTEGER},</if>
+            <if test="movie.movie_price != null"> movie_price= #{movie.movie_price,jdbcType=DOUBLE},</if>
+            <if test="movie.movie_stars != null"> movie_stars= #{movie.movie_stars,jdbcType=INTEGER},</if>
+            <if test="movie.movie_src != null"> movie_src= #{movie.movie_src,jdbcType=VARCHAR},</if>
+            <if test="movie.movie_showtime != null"> movie_showtime= #{movie.movie_showtime,jdbcType=INTEGER} ,</if>
+            <if test="movie.movie_status != null"> movie_status= #{movie.movie_status,jdbcType=INTEGER}</if>
+        </set>
+        WHERE movie_id = #{movie.movie_id,jdbcType=INTEGER}
+    </update>
+    <select id="findAll" resultType="com.entity.Movie">
+        select * from movie limit #{start} ,#{finish}
+    </select>
+    <select id="findTotal" resultType="int">
+        select count(1) from movie
+    </select>
+    <select id="findById" resultMap="BaseResultMap">
+        select * from movie where movie_id=#{id}
+    </select>
+    <update id="updateMovie" parameterType="com.entity.Movie">
+        update  movie
+        <set>
+            <if test="movie.movie_name != null"> movie_name= #{movie.movie_name,jdbcType=VARCHAR},</if>
+            <if test="movie.movie_introduce != null"> movie_introduce= #{movie.movie_introduce,jdbcType=VARCHAR},</if>
+            <if test="movie.movie_time != null"> movie_time= #{movie.movie_time,jdbcType=TIMESTAMP},</if>
+            <if test="movie.movie_type != null"> movie_type= #{movie.movie_type,jdbcType=INTEGER},</if>
+            <if test="movie.movie_price != null"> movie_price= #{movie.movie_price,jdbcType=DOUBLE},</if>
+            <if test="movie.movie_stars != null"> movie_stars= #{movie.movie_stars,jdbcType=INTEGER},</if>
+            <if test="movie.movie_src != null and movie.movie_src != ''"> movie_src= #{movie.movie_src,jdbcType=VARCHAR},</if>
+            <if test="movie.movie_showtime != null"> movie_showtime= #{movie.movie_showtime,jdbcType=INTEGER} ,</if>
+            <if test="movie.movie_status != null"> movie_status= #{movie.movie_status,jdbcType=INTEGER}</if>
+        </set>
+        WHERE movie_id = #{movie.movie_id,jdbcType=INTEGER}
+    </update>
+    <delete id="deleteMovie">
+          delete from movie where movie_id=#{id}
+    </delete>
+    <select id="searchMovieByName" resultType="Movie">
+          select m.movie_id,m.movie_name,m.movie_time,m.movie_stars,m.movie_src,m.movie_status from movie m
+          where movie_name like "%"#{movie_name}"%" and movie_status &lt;&gt; #{movie_status}
+    </select>
+
+</mapper>
+

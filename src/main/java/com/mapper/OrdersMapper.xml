@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.OrdersMapper">
+    <!--auto generated Code-->
+    <resultMap id="BaseResultMap" type="com.entity.Orders">
+        <result column="id" property="id" jdbcType="INTEGER"/>
+        <result column="order_id" property="order_id" jdbcType="VARCHAR"/>
+        <result column="order_product" property="order_product" jdbcType="VARCHAR"/>
+        <result column="order_number" property="order_number" jdbcType="VARCHAR"/>
+        <result column="order_price" property="order_price" jdbcType="DOUBLE"/>
+        <result column="order_status" property="order_status" jdbcType="INTEGER"/>
+        <result column="movie_name" property="movie_name" jdbcType="VARCHAR"/>
+        <result column="create_time" property="create_time" jdbcType="TIMESTAMP"/>
+        <result column="hall_type" property="hall_type" jdbcType="VARCHAR"/>
+        <result column="user_id" property="user_id" jdbcType="INTEGER"/>
+        <result column="create_date" property="create_date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!--auto generated Code-->
+    <sql id="Base_Column_List">
+        id,
+        order_id,
+        order_product,
+        order_number,
+        order_price,
+        order_status,
+        movie_name,
+        create_time,
+        hall_type,
+        user_id,
+        create_date
+    </sql>
+
+    <!--auto generated Code-->
+    <insert id="insert">
+        INSERT INTO orders (
+            order_id,
+            order_product,
+            order_number,
+            order_price,
+            order_status,
+            movie_name,
+            create_time,
+            hall_type,
+            user_id,
+            create_date,
+            plan_id
+        ) VALUES (
+            #{orders.order_id,jdbcType=VARCHAR},
+            #{orders.order_product,jdbcType=VARCHAR},
+            #{orders.order_number,jdbcType=VARCHAR},
+            #{orders.order_price,jdbcType=DOUBLE},
+            #{orders.order_status,jdbcType=INTEGER},
+            #{orders.movie_name,jdbcType=VARCHAR},
+            #{orders.create_time,jdbcType=TIMESTAMP},
+            #{orders.hall_type,jdbcType=VARCHAR},
+            #{orders.user_id,jdbcType=INTEGER},
+            #{orders.create_date},
+            #{orders.plan_id,jdbcType=INTEGER}
+        )
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="orders.id">
+        INSERT INTO orders
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="orders.id!=null"> id,</if>
+            <if test="orders.order_id!=null"> order_id,</if>
+            <if test="orders.order_product!=null"> order_product,</if>
+            <if test="orders.order_number!=null"> order_number,</if>
+            <if test="orders.order_price!=null"> order_price,</if>
+            <if test="orders.order_status!=null"> order_status,</if>
+            <if test="orders.movie_name!=null"> movie_name,</if>
+            <if test="orders.create_time!=null"> create_time,</if>
+            <if test="orders.hall_type!=null"> hall_type,</if>
+            <if test="orders.user_id!=null"> user_id,</if>
+            <if test="orders.create_date!=null"> create_date,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="orders.id!=null">#{orders.id,jdbcType=INTEGER},
+            </if>
+            <if test="orders.order_id!=null">#{orders.order_id,jdbcType=VARCHAR},
+            </if>
+            <if test="orders.order_product!=null">#{orders.order_product,jdbcType=VARCHAR},
+            </if>
+            <if test="orders.order_number!=null">#{orders.order_number,jdbcType=VARCHAR},
+            </if>
+            <if test="orders.order_price!=null">#{orders.order_price,jdbcType=DOUBLE},
+            </if>
+            <if test="orders.order_status!=null">#{orders.order_status,jdbcType=INTEGER},
+            </if>
+            <if test="orders.movie_name!=null">#{orders.movie_name,jdbcType=VARCHAR},
+            </if>
+            <if test="orders.create_time!=null">#{orders.create_time,jdbcType=TIMESTAMP},
+            </if>
+            <if test="orders.hall_type!=null">#{orders.hall_type,jdbcType=VARCHAR},
+            </if>
+            <if test="orders.user_id!=null">#{orders.user_id,jdbcType=INTEGER},
+            </if>
+            <if test="orders.create_date!=null">#{orders.create_date,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO orders (
+            id,
+            order_id,
+            order_product,
+            order_number,
+            order_price,
+            order_status,
+            movie_name,
+            create_time,
+            hall_type,
+            user_id,
+            create_date
+        )VALUES
+        <foreach collection="orderss" item="orders" index="index" separator=",">
+            (
+            #{orders.id,jdbcType=INTEGER},
+            #{orders.order_id,jdbcType=VARCHAR},
+            #{orders.order_product,jdbcType=VARCHAR},
+            #{orders.order_number,jdbcType=VARCHAR},
+            #{orders.order_price,jdbcType=DOUBLE},
+            #{orders.order_status,jdbcType=INTEGER},
+            #{orders.movie_name,jdbcType=VARCHAR},
+            #{orders.create_time,jdbcType=TIMESTAMP},
+            #{orders.hall_type,jdbcType=VARCHAR},
+            #{orders.user_id,jdbcType=INTEGER},
+            #{orders.create_date,jdbcType=TIMESTAMP}
+            )
+        </foreach>
+    </insert>
+
+    <!--auto generated Code-->
+    <update id="updateByPrimaryKeySelective">
+        UPDATE orders
+        <set>
+            <if test="orders.order_id != null"> order_id= #{orders.order_id,jdbcType=VARCHAR},</if>
+            <if test="orders.order_product != null"> order_product= #{orders.order_product,jdbcType=VARCHAR},</if>
+            <if test="orders.order_number != null"> order_number= #{orders.order_number,jdbcType=VARCHAR},</if>
+            <if test="orders.order_price != null"> order_price= #{orders.order_price,jdbcType=DOUBLE},</if>
+            <if test="orders.order_status != null"> order_status= #{orders.order_status,jdbcType=INTEGER},</if>
+            <if test="orders.movie_name != null"> movie_name= #{orders.movie_name,jdbcType=VARCHAR},</if>
+            <if test="orders.create_time != null"> create_time= #{orders.create_time,jdbcType=TIMESTAMP},</if>
+            <if test="orders.hall_type != null"> hall_type= #{orders.hall_type,jdbcType=VARCHAR},</if>
+            <if test="orders.user_id != null"> user_id= #{orders.user_id,jdbcType=INTEGER},</if>
+            <if test="orders.create_date != null"> create_date= #{orders.create_date,jdbcType=TIMESTAMP}</if>
+        </set>
+        WHERE id = #{orders.id,jdbcType=INTEGER}
+    </update>
+</mapper>
+

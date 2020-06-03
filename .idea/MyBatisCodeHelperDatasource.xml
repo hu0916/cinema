@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MyBatisCodeHelperDatasource">
+    <option name="projectProfile">
+      <ProjectProfile>
+        <option name="genJavaMapperPath" value="$PROJECT_DIR$/src/main/java/com/dao" />
+        <option name="genMapperXmlPath" value="$PROJECT_DIR$/src/main/java/com/mapper" />
+        <option name="genServiceInterfacePath" value="$PROJECT_DIR$/src/main/java/com/service" />
+        <option name="genServicePath" value="$PROJECT_DIR$/src/main/java/com/service" />
+        <option name="genSqlFilePath" value="$PROJECT_DIR$/src/main/java/com/entity" />
+      </ProjectProfile>
+    </option>
+  </component>
+</project>

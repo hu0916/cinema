@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.DisplayPlanMapper">
+    <!--auto generated Code-->
+    <resultMap id="BaseResultMap" type="com.entity.DisplayPlan">
+        <result column="plan_id" property="plan_id" jdbcType="INTEGER"/>
+        <result column="movie_id" property="movie_id" jdbcType="INTEGER"/>
+        <result column="start_time" property="start_time" jdbcType="TIMESTAMP"/>
+        <result column="end_time" property="end_time" jdbcType="TIMESTAMP"/>
+        <result column="play_time" property="play_time" jdbcType="TIMESTAMP"/>
+        <result column="hall_place" property="hall_place" jdbcType="VARCHAR"/>
+        <result column="hall_type" property="hall_type" jdbcType="VARCHAR"/>
+        <result column="plan_status" property="plan_status" jdbcType="INTEGER"/>
+        <result column="movie_price" property="movie_price" jdbcType="DOUBLE"/>
+        <result column="movie_name" property="movie_name" jdbcType="VARCHAR"/>
+        <result column="seat" property="seat" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--auto generated Code-->
+    <sql id="Base_Column_List">
+        plan_id,
+        movie_id,
+        start_time,
+        end_time,
+        play_time,
+        hall_place,
+        hall_type,
+        plan_status,
+        movie_price,
+        movie_name
+    </sql>
+
+    <!--auto generated Code-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="plan_id" keyColumn="plan_id">
+        INSERT INTO display_plan (
+            movie_id,
+            start_time,
+            end_time,
+            play_time,
+            hall_place,
+            hall_type,
+            plan_status,
+            movie_price,
+            movie_name
+        ) VALUES (
+            #{displayPlan.movie_id,jdbcType=INTEGER},
+            #{displayPlan.start_time,jdbcType=TIMESTAMP},
+            #{displayPlan.end_time,jdbcType=TIMESTAMP},
+            #{displayPlan.play_time,jdbcType=TIMESTAMP},
+            #{displayPlan.hall_place,jdbcType=VARCHAR},
+            #{displayPlan.hall_type,jdbcType=VARCHAR},
+            #{displayPlan.plan_status,jdbcType=INTEGER},
+            #{displayPlan.movie_price,jdbcType=DOUBLE},
+            #{displayPlan.movie_name,jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="displayPlan.plan_id">
+        INSERT INTO display_plan
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="displayPlan.plan_id!=null"> plan_id,</if>
+            <if test="displayPlan.movie_id!=null"> movie_id,</if>
+            <if test="displayPlan.start_time!=null"> start_time,</if>
+            <if test="displayPlan.end_time!=null"> end_time,</if>
+            <if test="displayPlan.play_time!=null"> play_time,</if>
+            <if test="displayPlan.hall_place!=null"> hall_place,</if>
+            <if test="displayPlan.hall_type!=null"> hall_type,</if>
+            <if test="displayPlan.plan_status!=null"> plan_status,</if>
+            <if test="displayPlan.movie_price!=null"> movie_price,</if>
+            <if test="displayPlan.movie_name!=null"> movie_name,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="displayPlan.plan_id!=null">#{displayPlan.plan_id,jdbcType=INTEGER},
+            </if>
+            <if test="displayPlan.movie_id!=null">#{displayPlan.movie_id,jdbcType=INTEGER},
+            </if>
+            <if test="displayPlan.start_time!=null">#{displayPlan.start_time,jdbcType=TIMESTAMP},
+            </if>
+            <if test="displayPlan.end_time!=null">#{displayPlan.end_time,jdbcType=TIMESTAMP},
+            </if>
+            <if test="displayPlan.play_time!=null">#{displayPlan.play_time,jdbcType=TIMESTAMP},
+            </if>
+            <if test="displayPlan.hall_place!=null">#{displayPlan.hall_place,jdbcType=VARCHAR},
+            </if>
+            <if test="displayPlan.hall_type!=null">#{displayPlan.hall_type,jdbcType=VARCHAR},
+            </if>
+            <if test="displayPlan.plan_status!=null">#{displayPlan.plan_status,jdbcType=INTEGER},
+            </if>
+            <if test="displayPlan.movie_price!=null">#{displayPlan.movie_price,jdbcType=DOUBLE},
+            </if>
+            <if test="displayPlan.movie_name!=null">#{displayPlan.movie_name,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO display_plan (
+            plan_id,
+            movie_id,
+            start_time,
+            end_time,
+            play_time,
+            hall_place,
+            hall_type,
+            plan_status,
+            movie_price,
+            movie_name
+        )VALUES
+        <foreach collection="displayPlans" item="displayPlan" index="index" separator=",">
+            (
+            #{displayPlan.plan_id,jdbcType=INTEGER},
+            #{displayPlan.movie_id,jdbcType=INTEGER},
+            #{displayPlan.start_time,jdbcType=TIMESTAMP},
+            #{displayPlan.end_time,jdbcType=TIMESTAMP},
+            #{displayPlan.play_time,jdbcType=TIMESTAMP},
+            #{displayPlan.hall_place,jdbcType=VARCHAR},
+            #{displayPlan.hall_type,jdbcType=VARCHAR},
+            #{displayPlan.plan_status,jdbcType=INTEGER},
+            #{displayPlan.movie_price,jdbcType=DOUBLE},
+            #{displayPlan.movie_name,jdbcType=VARCHAR}
+            )
+        </foreach>
+    </insert>
+
+    <!--auto generated Code-->
+    <update id="updateByPrimaryKeySelective">
+        UPDATE display_plan
+        <set>
+            <if test="displayPlan.start_time != null"> start_time= #{displayPlan.start_time,jdbcType=TIMESTAMP},</if>
+            <if test="displayPlan.end_time != null"> end_time= #{displayPlan.end_time,jdbcType=TIMESTAMP},</if>
+            <if test="displayPlan.play_time != null"> play_time= #{displayPlan.play_time,jdbcType=TIMESTAMP},</if>
+            <if test="displayPlan.hall_place != null"> hall_place= #{displayPlan.hall_place,jdbcType=VARCHAR},</if>
+            <if test="displayPlan.hall_type != null"> hall_type= #{displayPlan.hall_type,jdbcType=VARCHAR},</if>
+            <if test="displayPlan.plan_status != null"> plan_status= #{displayPlan.plan_status,jdbcType=INTEGER},</if>
+            <if test="displayPlan.movie_price != null"> movie_price= #{displayPlan.movie_price,jdbcType=DOUBLE},</if>
+            <if test="displayPlan.movie_name != null"> movie_name= #{displayPlan.movie_name,jdbcType=VARCHAR}</if>
+        </set>
+        WHERE plan_id = #{displayPlan.plan_id,jdbcType=INTEGER}
+    </update>
+    <select id="findAllPlan" resultMap="BaseResultMap">
+        select * from display_plan limit #{start},#{finish}
+    </select>
+
+</mapper>
+
